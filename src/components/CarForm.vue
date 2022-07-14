@@ -14,15 +14,21 @@
                     <label for="nome">Placa do veículo</label>
                     <input type="text" name="placa" id="placa" v-model="nome" placeholder="Placa">
                 </div>
-                <div class="input-container">
-                    <label for="nome">Selecione os opcionais de lavagem</label>
+                <div class="input-container" id="opcionais-container">
+                    <label for="nome" id="opcionais-title">Selecione os opcionais de lavagem</label>
                     <div class="checkbox-container">
                         <input type="checkbox" name="opcionais" v-model="opcionais" value="motor">
                         <span>Lavagem do motor</span>
+                    </div>
+                    <div class="checkbox-container">
                         <input type="checkbox" name="opcionais" v-model="opcionais" value="interna">
                         <span>Higienização Interna</span>
+                    </div>
+                    <div class="checkbox-container">
                         <input type="checkbox" name="opcionais" v-model="opcionais" value="polimento">
                         <span>Polimento</span>
+                    </div>
+                    <div class="checkbox-container">
                         <input type="checkbox" name="opcionais" v-model="opcionais" value="vitrificacao">
                         <span>Vitrificação de pintura</span>
                     </div>
@@ -45,25 +51,25 @@ export default {
 <style scoped>
     #burger-form{
         max-width: 400px;
-        margin: 0 auto;
+        margin: 0 auto; /*Centralizar o formulário na tela*/
     }
 
     .input-container{
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /*Label fica em uma linha e a coluna em outra*/
         margin-bottom: 20px;
     }
 
-    label{
+    label{ 
         font-weight: bold;
-        margin-bottom: 15px;
+        margin-bottom: 15px; /*Separa a label do input*/
         color: #222;
         padding: 5px 10px;
-        border-left: 4px solid #FCBA03;
+        border-left: 4px solid #0d6edd; 
     }
 
     input, select {
-        padding: 5px 10px;
+        padding: 5px 10px; 
         width: 300px;
     }
 
@@ -78,7 +84,7 @@ export default {
 
     .checkbox-container {
         display: flex;
-        align-items: flex-start;
+        align-items: flex-start; /*Alinha os itens no inicio*/
         width: 50%;
         margin-bottom: 20px;
     }
@@ -93,7 +99,7 @@ export default {
 
     .submit-btn {
         background-color: #222;
-        color: #FCBA03;
+        color: #418adf;
         font-weight: bold;
         border: 2px solid #222;
         padding: 10px;
