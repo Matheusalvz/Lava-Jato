@@ -2,17 +2,19 @@
   <Banner />
   <div class="main-container">
     <h1>Insira as informações</h1>
-    <p>Formulário</p>
+    <CarForm />
   </div>
 </template>
 
 <script>
 import Banner from '../components/Banner.vue';
+import CarForm from '../components/CarForm.vue'
 
 export default{
   name: "Home",
   components: {
-    Banner
+    Banner,
+    CarForm,
   }
 }
 </script>
