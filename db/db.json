@@ -1,65 +1,81 @@
 {
-    "ingredientes": {
-      "paes": [
+    "veiculos": {
+      "marcas": [
         {
           "id": 1,
-          "tipo": "Italiano Branco"
+          "tipo": "Chevrolet"
         },
         {
           "id": 2,
-          "tipo": "3 Queijos"
+          "tipo": "Volkswagen"
         },
         {
           "id": 3,
-          "tipo": "Parmesão e Orégano"
+          "tipo": "Fiat"
         },
         {
           "id": 4,
-          "tipo": "Integral"
+          "tipo": "Ford"
         }
       ],
-      "carnes": [
+      "modelos": [
         {
           "id": 1,
-          "tipo": "Maminha"
+          "tipo": "Celta"
         },
         {
           "id": 2,
-          "tipo": "Alcatra"
+          "tipo": "Onix"
         },
         {
           "id": 3,
-          "tipo": "Picanha"
+          "tipo": "Prisma"
         },
         {
           "id": 4,
-          "tipo": "Veggie burger"
+          "tipo": "Gol"
+        },
+        {
+          "id": 5,
+          "tipo": "Voyage"
+        },
+        {
+          "id": 6,
+          "tipo": "Strada"
+        },
+        {
+          "id": 7,
+          "tipo": "Toro"
+        },
+        {
+          "id": 8,
+          "tipo": "Moby"
+        },
+        {
+          "id": 9,
+          "tipo": "Fiesta"
+        },
+        {
+          "id": 10,
+          "tipo": "Ranger"
         }
       ],
       "opcionais": [
         {
           "id": 1,
-          "tipo": "Bacon"
+          "tipo": "Lavagem de motor"
         },
         {
           "id": 2,
-          "tipo": "Cheddar"
+          "tipo": "Higienização interna"
         },
         {
           "id": 3,
-          "tipo": "Salame"
+          "tipo": "Polimento"
         },
         {
           "id": 4,
-          "tipo": "Tomate"
-        },
-        {
-          "id": 4,
-          "tipo": "Cebola roxa"
-        },
-        {
-          "id": 4,
-          "tipo": "Pepino"
+          "tipo": "Vitrificação de pintura"
         }
       ]
     },
@@ -70,7 +86,7 @@
       },
       {
         "id": 12,
-        "tipo": "Em produção"
+        "tipo": "Em lavagem"
       },
       {
         "id": 13,
