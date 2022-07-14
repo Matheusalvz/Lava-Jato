@@ -7,8 +7,18 @@
                     <input type="text" name="nome" id="nome" v-model="nome" placeholder="Nome completo">
                 </div>
                 <div class="input-container">
-                    <label for="nome">Marca e modelo do veículo</label>
-                    <input type="text" name="nome" id="nome" v-model="nome" placeholder="Marca">
+                    <label for="nome">Marca do veículo</label>
+                    <select name="marca" id="marca" v-model="marca">
+                        <option value="">Selecione...</option>
+                        <option v-for="marca in marcas" :key="marca.id" :value="marca.tipo">{{ marca.tipo }}</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <label for="modelo">Modelo do veículo</label>
+                    <select name="modelo" id="modelo" v-model="modelo">
+                        <option value="">Selecione...</option>
+                        <option v-for="modelo in modelos" :key="modelo.id" :value="modelo.tipo">{{ modelo.tipo }}</option>
+                    </select>
                 </div>
                 <div class="input-container">
                     <label for="nome">Placa do veículo</label>
@@ -16,21 +26,9 @@
                 </div>
                 <div class="input-container" id="opcionais-container">
                     <label for="nome" id="opcionais-title">Selecione os opcionais de lavagem</label>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" value="motor">
-                        <span>Lavagem do motor</span>
-                    </div>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" value="interna">
-                        <span>Higienização Interna</span>
-                    </div>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" value="polimento">
-                        <span>Polimento</span>
-                    </div>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" value="vitrificacao">
-                        <span>Vitrificação de pintura</span>
+                    <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id">
+                        <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
+                        <span>{{ opcional.tipo}}</span>
                     </div>
                 </div> 
                 <div class="input-container">
@@ -44,7 +42,32 @@
 <script>
 
 export default {
-    name: "CarForm"
+    name: "CarForm",
+    data() {
+        return {
+            marcas: null,
+            modelos: null,
+            opcionaisdata: null,
+            marca: null,
+            modelo: null,
+            opcionais: [],
+            status: "Solicitado",
+            msg: null
+        }
+    },
+    methods: {
+        async getVeiculos() {
+            const req = await fetch("http://localhost:3000/veiculos");
+            const data = await req.json();
+
+            this.marcas = data.marcas;
+            this.modelos = data.modelos;
+            this.opcionaisdata = data.opcionais;
+        }
+    },
+    mounted() {
+        this.getVeiculos();
+    }
 }
 </script>
 
