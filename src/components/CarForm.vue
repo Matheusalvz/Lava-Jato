@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style scoped>
-    #burger-form{
+    #car-form{
         max-width: 400px;
         margin: 0 auto; /*Centralizar o formulário na tela*/
     }
