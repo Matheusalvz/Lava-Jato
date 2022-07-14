@@ -24,6 +24,7 @@
         display: flex;
         justify-content: flex-end;
         align-items: flex;
+        height: 75px;
     }
 
     #nav #logo-url{
@@ -32,8 +33,8 @@
     }
 
     #logo{
-        width: 40px;
-        height: 40px;
+        width: 60px !important;
+        height: 40px !important;
     }
 
     #nav a{
