@@ -1,13 +1,13 @@
 <template>
     <div>
         <div>
-            <form id="car-form">
+            <form id="car-form" @submit="createSolicitacao">
                 <div class="input-container">
                     <label for="nome">Nome do cliente:</label>
                     <input type="text" name="nome" id="nome" v-model="nome" placeholder="Nome completo">
                 </div>
                 <div class="input-container">
-                    <label for="nome">Marca do veículo</label>
+                    <label for="marca">Marca do veículo</label>
                     <select name="marca" id="marca" v-model="marca">
                         <option value="">Selecione...</option>
                         <option v-for="marca in marcas" :key="marca.id" :value="marca.tipo">{{ marca.tipo }}</option>
@@ -21,11 +21,11 @@
                     </select>
                 </div>
                 <div class="input-container">
-                    <label for="nome">Placa do veículo</label>
-                    <input type="text" name="placa" id="placa" v-model="nome" placeholder="Placa">
+                    <label for="placa">Placa do veículo</label>
+                    <input type="text" name="placa" id="placa" v-model="placa" placeholder="Placa">
                 </div>
                 <div class="input-container" id="opcionais-container">
-                    <label for="nome" id="opcionais-title">Selecione os opcionais de lavagem</label>
+                    <label for="opcionais" id="opcionais-title">Selecione os opcionais de lavagem</label>
                     <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id">
                         <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
                         <span>{{ opcional.tipo}}</span>
@@ -63,6 +63,31 @@ export default {
             this.marcas = data.marcas;
             this.modelos = data.modelos;
             this.opcionaisdata = data.opcionais;
+        },
+        async createSolicitacao(e) {
+        
+        e.preventDefault();
+
+        const data = { //Capta os dados inseridos no formulário
+            nome: this.nome,
+            marca: this.marca,
+            modelo: this.modelo,
+            placa: this.placa,
+            opcionais: Array.from(this.opcionais),
+            status: "Solicitado"
+            }
+        
+        const dataJson = JSON.stringify(data); //Tranforma as informações em JSON
+
+        const req = await fetch("http://localhost:3000/fila",{
+            method: "POST" ,
+            headers: { "Content-Type": "application/json"} ,
+            body: dataJson
+        });
+
+        const res = await req.json();
+
+        console.log(res);
         }
     },
     mounted() {

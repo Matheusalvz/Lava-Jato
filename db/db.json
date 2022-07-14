@@ -1,143 +1,110 @@
 {
-    "veiculos": {
-      "marcas": [
-        {
-          "id": 1,
-          "tipo": "Chevrolet"
-        },
-        {
-          "id": 2,
-          "tipo": "Volkswagen"
-        },
-        {
-          "id": 3,
-          "tipo": "Fiat"
-        },
-        {
-          "id": 4,
-          "tipo": "Ford"
-        }
-      ],
-      "modelos": [
-        {
-          "id": 1,
-          "tipo": "Celta"
-        },
-        {
-          "id": 2,
-          "tipo": "Onix"
-        },
-        {
-          "id": 3,
-          "tipo": "Prisma"
-        },
-        {
-          "id": 4,
-          "tipo": "Gol"
-        },
-        {
-          "id": 5,
-          "tipo": "Voyage"
-        },
-        {
-          "id": 6,
-          "tipo": "Strada"
-        },
-        {
-          "id": 7,
-          "tipo": "Toro"
-        },
-        {
-          "id": 8,
-          "tipo": "Moby"
-        },
-        {
-          "id": 9,
-          "tipo": "Fiesta"
-        },
-        {
-          "id": 10,
-          "tipo": "Ranger"
-        }
-      ],
-      "opcionais": [
-        {
-          "id": 1,
-          "tipo": "Lavagem de motor"
-        },
-        {
-          "id": 2,
-          "tipo": "Higienização interna"
-        },
-        {
-          "id": 3,
-          "tipo": "Polimento"
-        },
-        {
-          "id": 4,
-          "tipo": "Vitrificação de pintura"
-        }
-      ]
-    },
-    "status": [
+  "veiculos": {
+    "marcas": [
       {
-        "id": 11,
-        "tipo": "Solicitado"
+        "id": 1,
+        "tipo": "Chevrolet"
       },
       {
-        "id": 12,
-        "tipo": "Em lavagem"
+        "id": 2,
+        "tipo": "Volkswagen"
       },
       {
-        "id": 13,
-        "tipo": "Finalizado"
+        "id": 3,
+        "tipo": "Fiat"
+      },
+      {
+        "id": 4,
+        "tipo": "Ford"
       }
     ],
-    "burgers": [
+    "modelos": [
       {
-        "nome": "Matheus Battisti",
-        "carne": "Picanha",
-        "pao": "Italiano Branco",
-        "opcionais": [
-          "Bacon",
-          "Salame",
-          "Cebola roxa"
-        ],
-        "status": "Finalizado",
-        "id": 1
+        "id": 1,
+        "tipo": "Celta"
       },
       {
-        "nome": "João Coelho",
-        "carne": "Maminha",
-        "pao": "3 Queijos",
-        "opcionais": [
-          "Salame",
-          "Cebola roxa"
-        ],
-        "status": "Solicitado",
-        "id": 4
+        "id": 2,
+        "tipo": "Onix"
       },
       {
-        "nome": "Matheus Alves",
-        "carne": "Maminha",
-        "pao": "3 Queijos",
-        "opcionais": [
-          "Bacon",
-          "Salame",
-          "Cheddar"
-        ],
-        "status": "Em produção",
-        "id": 7
+        "id": 3,
+        "tipo": "Prisma"
       },
       {
-        "nome": "Eliza",
-        "carne": "Maminha",
-        "pao": "Parmesão e Orégano",
-        "opcionais": [
-          "Salame"
-        ],
-        "status": "Solicitado",
-        "id": 8
+        "id": 4,
+        "tipo": "Gol"
+      },
+      {
+        "id": 5,
+        "tipo": "Voyage"
+      },
+      {
+        "id": 6,
+        "tipo": "Strada"
+      },
+      {
+        "id": 7,
+        "tipo": "Toro"
+      },
+      {
+        "id": 8,
+        "tipo": "Moby"
+      },
+      {
+        "id": 9,
+        "tipo": "Fiesta"
+      },
+      {
+        "id": 10,
+        "tipo": "Ranger"
+      }
+    ],
+    "opcionais": [
+      {
+        "id": 1,
+        "tipo": "Lavagem de motor"
+      },
+      {
+        "id": 2,
+        "tipo": "Higienização interna"
+      },
+      {
+        "id": 3,
+        "tipo": "Polimento"
+      },
+      {
+        "id": 4,
+        "tipo": "Vitrificação de pintura"
       }
     ]
-  }
+  },
+  "status": [
+    {
+      "id": 11,
+      "tipo": "Solicitado"
+    },
+    {
+      "id": 12,
+      "tipo": "Em lavagem"
+    },
+    {
+      "id": 13,
+      "tipo": "Finalizado"
+    }
+  ],
+  "fila": [
+    {
+      "nome": "Matheus Alves de Oliveira",
+      "marca": "Ford",
+      "modelo": "Ranger",
+      "placa": "Nzy 0555",
+      "opcionais": [
+        "Lavagem de motor",
+        "Higienização interna"
+      ],
+      "status": "Solicitado",
+      "id": 1
+    }
+  ]
+}
