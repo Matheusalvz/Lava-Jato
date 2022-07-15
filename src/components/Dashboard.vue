@@ -23,10 +23,11 @@
                         <li v-for="(opcional, index) in carro.opcionais" :key="index"> {{ opcional }} </li>
                     </ul>
                 </div>
-                <select name="" id="">
-                    <option value="">Status</option>
+                <select name="status" class="status">
+                    <option value="">Selecione</option>
+                    <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="carro.status == s.tipo">{{ s.tipo }}</option>
                 </select>
-                <button class="delete-btn">Cancelar Serviço</button>
+                <button class="delete-btn">Cancelar</button>
             </div>
         </div>
     </div>
@@ -53,6 +54,18 @@ export default {
             this.carros = data;
 
             //resgatar os status
+            this.getStatus();
+        },
+
+        async getStatus(){
+            
+        const req = await fetch("http://localhost:3000/status");
+
+        const data = await req.json();
+
+        this.status = data;
+        
+
         }
     },
     mounted() {
@@ -115,6 +128,10 @@ export default {
     .delete-btn:hover {
         background-color: transparent;
         color: #222;
+    }
+
+    .status{
+        height: 40px;
     }
 
     @media (max-width: 400px) {
