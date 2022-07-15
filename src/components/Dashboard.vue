@@ -12,20 +12,19 @@
             </div>
         </div>
         <div id="car-table-rows">
-            <div class="car-table-row">
-                <div class="order-number">1</div>
-                <div>Jonas</div>
-                <div>GM</div>
-                <div>Celta</div>
-                <div>Placa</div>
+            <div class="car-table-row" v-for="carro in carros" :key="carro.id">
+                <div class="order-number">{{carro.id}}</div>
+                <div>{{ carro.nome }}</div>
+                <div>{{ carro.marca }}</div>
+                <div>{{ carro.modelo }}</div>
+                <div>{{ carro.placa }}</div>
                 <div>
                     <ul>
-                        <li>Vitrificação</li>
-                        <li>Polimento</li>
+                        <li v-for="(opcional, index) in carro.opcionais" :key="index"> {{ opcional }} </li>
                     </ul>
                 </div>
                 <select name="" id="">
-                    <option value="">Selecione o status do serviço</option>
+                    <option value="">Status</option>
                 </select>
                 <button class="delete-btn">Cancelar Serviço</button>
             </div>
@@ -36,7 +35,29 @@
 <script>
 
 export default {
-    name: "Dashboard"
+    name: "Dashboard",
+    data() {
+        return { 
+            carro: null,
+            carros: null,
+            carros_id: null,
+            status: []
+        }
+    },
+    methods: {
+        async getAtendimentos() {
+            const req = await fetch("http://localhost:3000/atendimentos");
+
+            const data = await req.json();
+
+            this.carros = data;
+
+            //resgatar os status
+        }
+    },
+    mounted() {
+        this.getAtendimentos();
+    }
 }
 
 </script>
@@ -67,7 +88,7 @@ export default {
     }
     #car-table-heading div,
     .car-table-row div {
-        width: 19%;
+        width: 12%;
     }
 
     #car-table-heading .order-id,
@@ -94,5 +115,10 @@ export default {
     .delete-btn:hover {
         background-color: transparent;
         color: #222;
+    }
+
+    @media (max-width: 400px) {
+        
+        /* Responsividade */
     }
 </style>
