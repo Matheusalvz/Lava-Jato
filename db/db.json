@@ -93,7 +93,7 @@
       "tipo": "Finalizado"
     }
   ],
-  "fila": [
+  "atendimentos": [
     {
       "nome": "Matheus Alves de Oliveira",
       "marca": "Ford",
@@ -105,6 +105,15 @@
       ],
       "status": "Solicitado",
       "id": 1
+    },
+    {
+      "nome": "Eliza",
+      "marca": "Fiat",
+      "modelo": "Moby",
+      "placa": "Nzy 3221",
+      "opcionais": [],
+      "status": "Finalizado",
+      "id": 2
     }
   ]
 }
