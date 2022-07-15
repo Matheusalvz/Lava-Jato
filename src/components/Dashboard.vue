@@ -27,7 +27,7 @@
                     <option value="">Selecione</option>
                     <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="carro.status == s.tipo">{{ s.tipo }}</option>
                 </select>
-                <button class="delete-btn">Cancelar</button>
+                <button class="delete-btn" @click="deleteAtendimento(carro.id)">Cancelar</button>
             </div>
         </div>
     </div>
@@ -66,6 +66,17 @@ export default {
         this.status = data;
         
 
+        },
+
+        async deleteAtendimento(id){
+            
+            const req = await fetch(`http://localhost:3000/atendimentos/${id}`,{
+                method: "DELETE"
+            });
+
+            const res = await req;
+
+            this.getAtendimentos();
         }
     },
     mounted() {
