@@ -1,6 +1,7 @@
 <template>
     <div>
         <div>
+            <Message :msg="msg" v-show="msg"/>
             <form id="car-form" @submit="createSolicitacao">
                 <div class="input-container">
                     <label for="nome">Nome do cliente:</label>
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import Message from './Message.vue';
 
 export default {
     name: "CarForm",
@@ -54,6 +56,9 @@ export default {
             status: "Solicitado",
             msg: null
         }
+    },
+    components:{ 
+        Message
     },
     methods: {
         async getVeiculos() {
@@ -87,7 +92,15 @@ export default {
 
         const res = await req.json();
 
-        console.log(res);
+        this.msg = `Solicitação nº: ${res.id} efetuada com sucesso!`;
+
+        setTimeout(()=> this.msg = "", 3000); //Limpa a mensagem
+
+        this.nome = "";
+        this.marca = "";
+        this.modelo = "";
+        this.placa = "";
+        this.opcionais = "";
         }
     },
     mounted() {
