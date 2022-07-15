@@ -134,6 +134,8 @@ export default {
         margin: 0 auto;
         cursor: pointer;
         transition: .5s;
+        height: 40px;
+        width: 100px;
     }
     
     .delete-btn:hover {
