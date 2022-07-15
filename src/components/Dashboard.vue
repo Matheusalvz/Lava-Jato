@@ -1,5 +1,6 @@
 <template>
     <div id="car-table">
+        <Message :msg="msg" v-show="msg"/>
         <div>
             <div id="car-table-heading">
                 <div class="order-id">#:</div>
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import Message from './Message.vue';
 
 export default {
     name: "Dashboard",
@@ -42,8 +44,12 @@ export default {
             carro: null,
             carros: null,
             carros_id: null,
-            status: []
+            status: [],
+            msg: null
         }
+    },
+    components:{
+        Message
     },
     methods: {
         async getAtendimentos() {
@@ -75,6 +81,10 @@ export default {
             });
 
             const res = await req;
+
+            this.msg = `Atendimento cancelado com sucesso!`
+
+            setTimeout(()=> this.msg="", 4000);
 
             this.getAtendimentos();
         },
