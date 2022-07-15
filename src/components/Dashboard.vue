@@ -23,7 +23,7 @@
                         <li v-for="(opcional, index) in carro.opcionais" :key="index"> {{ opcional }} </li>
                     </ul>
                 </div>
-                <select name="status" class="status">
+                <select name="status" class="status" @change="updateAtendimento($event, carro.id)">
                     <option value="">Selecione</option>
                     <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="carro.status == s.tipo">{{ s.tipo }}</option>
                 </select>
@@ -77,6 +77,24 @@ export default {
             const res = await req;
 
             this.getAtendimentos();
+        },
+
+        async updateAtendimento(event, id){
+
+            const option = event.target.value; //Capta a opção selecionada pelo usuário
+
+            const dataJson = JSON.stringify({ status: option });
+            
+            const req = await fetch(`http://localhost:3000/atendimentos/${id}`,{
+                method: "PATCH",
+                headers: {"Content-type": "application/json" },
+                body: dataJson
+            });
+
+            const res = await req;
+
+            this.getAtendimentos();
+
         }
     },
     mounted() {
