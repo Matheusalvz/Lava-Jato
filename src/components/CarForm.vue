@@ -79,7 +79,7 @@ export default {
         
         const dataJson = JSON.stringify(data); //Tranforma as informações em JSON
 
-        const req = await fetch("http://localhost:3000/fila",{
+        const req = await fetch("http://localhost:3000/atendimentos",{
             method: "POST" ,
             headers: { "Content-Type": "application/json"} ,
             body: dataJson
