@@ -103,6 +103,10 @@ export default {
 
             const res = await req;
 
+            this.msg = `Pedido Nº: ${id} atualizado com sucesso!`;
+
+            setTimeout(()=> this.msg="", 4000);
+
             this.getAtendimentos();
 
         }
