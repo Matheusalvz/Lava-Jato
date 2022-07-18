@@ -5,20 +5,20 @@
             <div id="car-table-heading">
                 <div class="order-id">#:</div>
                 <div>Cliente:</div>
-                <div>Marca:</div>
+                <div id="marca">Marca:</div>
                 <div>Modelo:</div>
-                <div>Placa:</div>
+                <div id="placa">Placa:</div>
                 <div>Opcionais:</div>
-                <div>Ações:</div>
+                <div id="acoes">Ações:</div>
             </div>
         </div>
         <div id="car-table-rows">
             <div class="car-table-row" v-for="carro in carros" :key="carro.id">
                 <div class="order-number">{{carro.id}}</div>
-                <div>{{ carro.nome }}</div>
-                <div>{{ carro.marca }}</div>
-                <div>{{ carro.modelo }}</div>
-                <div>{{ carro.placa }}</div>
+                <div id="nome">{{ carro.nome }}</div>
+                <div id="marca">{{ carro.marca }}</div>
+                <div id="modelo">{{ carro.modelo }}</div>
+                <div id="placa">{{ carro.placa }}</div>
                 <div>
                     <ul>
                         <li v-for="(opcional, index) in carro.opcionais" :key="index"> {{ opcional }} </li>
@@ -178,9 +178,35 @@ export default {
     .status{
         height: 40px;
     }
-
-    @media (max-width: 400px) {
+/* */
+    @media screen and (min-width: 600px) and (max-width: 750px) {
         
-        /* Responsividade */
+
+        #car-table{
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        
+        #acoes{
+            visibility: collapse;
+        }
+    } 
+    
+    
+
+    @media screen and (min-width: 100px) and (max-width: 600px) {
+
+
+        #car-table{
+            width: 350px;
+        }
+        
+        #acoes,
+        #placa,
+        #marca{
+            visibility: collapse;
+        }
     }
+
+
 </style>
